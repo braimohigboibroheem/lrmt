@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LRMT Red Line Security Audit Report</title>
+    <title>LRMT Security Audit Report - Blue & Red Lines</title>
     <style>
         * {
             margin: 0;
@@ -66,7 +66,7 @@
             font-size: 2.2em;
             font-weight: 600;
             margin-bottom: 20px;
-            border-bottom: 3px solid #e74c3c;
+            border-bottom: 3px solid #007bff;
             padding-bottom: 10px;
         }
 
@@ -80,7 +80,7 @@
         .slide p, .slide li {
             color: #2c3e50;
             font-size: 1.1em;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 10px;
         }
 
@@ -113,7 +113,7 @@
             background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
             padding: 20px;
             border-radius: 12px;
-            border-left: 4px solid #e74c3c;
+            border-left: 4px solid #dc3545;
             margin: 15px 0;
         }
 
@@ -121,7 +121,7 @@
             background: linear-gradient(135deg, #f0fff4 0%, #e8f5e8 100%);
             padding: 20px;
             border-radius: 12px;
-            border-left: 4px solid #27ae60;
+            border-left: 4px solid #28a745;
             margin: 15px 0;
         }
 
@@ -130,7 +130,7 @@
             padding: 18px;
             border-radius: 10px;
             margin: 12px 0;
-            border-left: 4px solid #34495e;
+            border-left: 4px solid #007bff;
         }
 
         .critical-issue {
@@ -141,9 +141,37 @@
             margin: 12px 0;
         }
 
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #007bff;
+        }
+
+        .stat-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #007bff;
+            display: block;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
         .image-placeholder {
             width: 100%;
-            height: 300px;
+            height: 200px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border: 2px dashed #6c757d;
             border-radius: 10px;
@@ -156,147 +184,43 @@
             text-align: center;
         }
 
-        /* Media Queries */
-        @media screen and (max-width: 1200px) {
-            .slide {
-                width: 98%;
-                padding: 30px 40px;
-            }
-            
-            .slide h1 {
-                font-size: 2.4em;
-            }
-            
-            .slide h2 {
-                font-size: 2em;
-            }
-            
-            .slide h3 {
-                font-size: 1.4em;
-            }
-            
-            .slide p, .slide li {
-                font-size: 1em;
-            }
+        .red-line-btn {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
         }
 
-        @media screen and (max-width: 768px) {
-            .slide {
-                width: 98%;
-                padding: 25px 30px;
-                min-height: 80vh;
-                max-height: 85vh;
-            }
-            
-            .slide h1 {
-                font-size: 2em;
-                margin-bottom: 15px;
-            }
-            
-            .slide h2 {
-                font-size: 1.6em;
-                margin-bottom: 15px;
-            }
-            
-            .slide h3 {
-                font-size: 1.2em;
-                margin-bottom: 12px;
-            }
-            
-            .slide p, .slide li {
-                font-size: 0.95em;
-                line-height: 1.4;
-                margin-bottom: 8px;
-            }
-            
-            .subtitle {
-                font-size: 1.2em;
-                margin-bottom: 20px;
-            }
-            
-            .date-info {
-                font-size: 1em;
-                margin-top: 20px;
-            }
-            
-            .key-findings, .recommendations, .station-box, .critical-issue {
-                padding: 15px;
-                margin: 10px 0;
-            }
-            
-            .image-placeholder {
-                height: 150px;
-                font-size: 0.9em;
-            }
-            
-            .navigation {
-                bottom: 20px;
-                gap: 10px;
-            }
-            
-            .nav-btn {
-                padding: 10px 18px;
-                font-size: 0.9em;
-            }
-            
-            .slide-counter {
-                top: 20px;
-                right: 20px;
-                padding: 8px 15px;
-                font-size: 0.9em;
-            }
+        .red-line-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
         }
 
-        @media screen and (max-width: 480px) {
-            .slide {
-                padding: 20px 25px;
-                min-height: 75vh;
-                max-height: 80vh;
-            }
-            
-            .slide h1 {
-                font-size: 1.8em;
-            }
-            
-            .slide h2 {
-                font-size: 1.4em;
-            }
-            
-            .slide h3 {
-                font-size: 1.1em;
-            }
-            
-            .slide p, .slide li {
-                font-size: 0.9em;
-            }
-            
-            .subtitle {
-                font-size: 1.1em;
-            }
-            
-            .key-findings, .recommendations, .station-box, .critical-issue {
-                padding: 12px;
-            }
-            
-            .image-placeholder {
-                height: 120px;
-                font-size: 0.85em;
-            }
-            
-            .nav-btn {
-                padding: 8px 15px;
-                font-size: 0.85em;
-            }
-            
-            .slide-counter {
-                padding: 6px 12px;
-                font-size: 0.85em;
-            }
+        .line-indicator {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin: 5px;
         }
 
-        .slide li::marker {
-            color: #e74c3c;
-            font-weight: bold;
+        .blue-line {
+            background: #007bff;
+            color: white;
+        }
+
+        .red-line {
+            background: #dc3545;
+            color: white;
         }
 
         .navigation {
@@ -350,776 +274,324 @@
             top: 0;
             left: 0;
             height: 4px;
-            background: #e74c3c;
+            background: #007bff;
             transition: width 0.6s ease;
             z-index: 1000;
         }
 
+      
 
 
-
-
-/* Train Animation Styles - First Slide Only */
-.slide:first-child .train-container {
-    position: absolute;
-    bottom: 120px;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    pointer-events: none;
-    z-index: 100;
-    overflow: hidden;
+/* The circular track */
+.train-track {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 3px dashed #444;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.slide:first-child .train-track {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: repeating-linear-gradient(
-        to right,
-        #8B4513 0px,
-        #8B4513 20px,
-        #654321 20px,
-        #654321 25px,
-        #8B4513 25px,
-        #8B4513 45px,
-        #654321 45px,
-        #654321 50px
-    );
-    border-top: 2px solid #444;
-    border-bottom: 2px solid #444;
-}
-
-.slide:first-child .train-track::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: repeating-linear-gradient(
-        to right,
-        #C0C0C0 0px,
-        #C0C0C0 80px,
-        transparent 80px,
-        transparent 100px
-    );
-}
-
-.slide:first-child .train {
-    position: absolute;
-    bottom: 8px;
-    left: -180px;
-    width: 160px;
-    height: 40px;
-    animation: moveTrain 12s linear infinite;
-}
-
-.slide:first-child .train-engine {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 80px;
-    height: 35px;
-    background: linear-gradient(45deg, #DC143C, #B22222);
-    border-radius: 5px 15px 5px 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
-.slide:first-child .train-engine::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 10px;
-    width: 15px;
-    height: 8px;
-    background: #8B0000;
-    border-radius: 3px;
-}
-
-.slide:first-child .train-engine::after {
-    content: '';
-    position: absolute;
-    top: 8px;
-    right: -10px;
-    width: 10px;
-    height: 15px;
-    background: #FFD700;
-    border-radius: 50%;
-}
-
-.slide:first-child .train-car {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 70px;
-    height: 30px;
-    background: linear-gradient(45deg, #C41E3A, #8B1538);
-    border-radius: 3px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.slide:first-child .train-wheels {
-    position: absolute;
-    bottom: -8px;
-    left: 5px;
-    width: 100%;
-    height: 12px;
-}
-
-.slide:first-child .train-wheel {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #2F4F4F;
-    border-radius: 50%;
-    border: 2px solid #1C1C1C;
-    animation: rotateWheel 0.5s linear infinite;
-}
-
-.slide:first-child .train-wheel:nth-child(1) {
-    left: 10px;
-}
-
-.slide:first-child .train-wheel:nth-child(2) {
-    left: 25px;
-}
-
-.slide:first-child .train-wheel:nth-child(3) {
-    right: 25px;
-}
-
-.slide:first-child .train-wheel:nth-child(4) {
-    right: 10px;
-}
-
-.slide:first-child .train-smoke {
-    position: absolute;
-    top: -15px;
-    right: 15px;
-    width: 8px;
-    height: 8px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 50%;
-    animation: smokeRise 2s ease-out infinite;
-}
-
-.slide:first-child .train-smoke::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 2px;
-    width: 6px;
-    height: 6px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    animation: smokeRise 2s ease-out infinite 0.3s;
-}
-
-.slide:first-child .train-smoke::after {
-    content: '';
-    position: absolute;
-    top: -16px;
-    left: -2px;
-    width: 10px;
-    height: 10px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 50%;
-    animation: smokeRise 2s ease-out infinite 0.6s;
-}
-
-@keyframes moveTrain {
-    0% {
-        left: -180px;
-    }
-    100% {
-        left: calc(100% + 20px);
-    }
-}
-
-@keyframes rotateWheel {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes smokeRise {
-    0% {
-        opacity: 0.8;
-        transform: translateY(0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-20px) scale(1.5);
-    }
-}
-
-/* Responsive adjustments for train */
-@media screen and (max-width: 768px) {
-    .slide:first-child .train-container {
-        bottom: 100px;
-    }
-    
-    .slide:first-child .train {
-        width: 120px;
-        height: 30px;
-        animation-duration: 10s;
-    }
-    
-    .slide:first-child .train-engine {
-        width: 60px;
-        height: 25px;
-    }
-    
-    .slide:first-child .train-car {
-        width: 55px;
-        height: 22px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .slide:first-child .train-container {
-        bottom: 80px;
-    }
-    
-    .slide:first-child .train {
-        width: 100px;
-        height: 25px;
-        animation-duration: 8s;
-    }
-    
-    .slide:first-child .train-engine {
-        width: 50px;
-        height: 20px;
-    }
-    
-    .slide:first-child .train-car {
-        width: 45px;
-        height: 18px;
-    }
-}
+/* Base train box */
 
 
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
+;
+        @media screen and (max-width: 768px) {
+            .slide {
+                width: 98%;
+                padding: 25px 30px;
+                min-height: 80vh;
+                max-height: 85vh;
+            }
+            
+            .slide h1 {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+            
+            .slide h2 {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .stat-number {
+                font-size: 1.8em;
+            }
         }
-
-        .slide-content {
-            animation: slideIn 0.8s ease-out;
-        }
-
-
-
-
-
-
     </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
-    <div class="slide-counter" id="slideCounter">1 / 11</div>
+    <div class="slide-counter" id="slideCounter">1 / 10</div>
     
     <div class="presentation-container">
         <!-- Slide 1: Title Slide -->
         <div class="slide active">
             <div class="slide-content">
-                <h1>LRMT Red Line Security Audit Report</h1>
-                <div class="subtitle">Surveillance and Security Evaluation - July 2025</div>
-                <div class="image-placeholder">
-<img class="image-placeholder" src="./images/Picture1.jpg" alt="">
+                <h1>MID-YEAR RAIL PROJECT WORKSHOP <br> <span style="color: blue;">RAIL SECURITY & SURVEILLANCE UNIT</span></h1>
+                <div class="subtitle">Comprehensive Security and Surveillance Report Across <span style="color: blue;">Blue </span>& <span style="color: red;">Red</span> Lines</div>
+                <div style="text-align: center; margin: 20px 0;">
+                    <span class="line-indicator blue-line">Blue Line Focus</span>
+                    <a href="./blue.html" target="_blank"><span class="line-indicator red-line" >Red Line Available</span></a>
                 </div>
-                <br>
+                <div >
+                    <img class="image-placeholder" src="./images/background.png" alt="">
+                </div>
                 <div class="date-info">
-                    <p><strong>Prepared by:</strong> PUBLIC TRANSPORT – RAIL DEPARTMENT
-SECURITY & SURVEILLANCE UNIT</p>
-                    <p><strong>Date:</strong> August 14th, 2025</p>
+                    <p><strong>Blue Line :</strong></p>
+                    <p><strong>Stations Covered:</strong> Marina, National Theatre, Iganmu, Alaba, Mile 2</p>
                 </div>
 
-<!-- Add this inside the first slide, after the date-info div -->
-<div class="train-container">
-    <div class="train-track"></div>
-    <div class="train">
-        <div class="train-car">
-            <div class="train-wheels">
-                <div class="train-wheel"></div>
-                <div class="train-wheel"></div>
-            </div>
-        </div>
-        <div class="train-engine">
-            <div class="train-smoke"></div>
-            <div class="train-wheels">
-                <div class="train-wheel"></div>
-                <div class="train-wheel"></div>
-            </div>
-        </div>
-    </div>
-</div>
+ 
 
 
+
+
+                <div style="text-align: center;">
+                    <button class="red-line-btn" onclick="openRedLineReport()">View Red Line Security Report →</button>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 2: Background and Objective -->
+      
+
+        <!-- Slide 4: CCTV Surveillance Systems Overview -->
         <div class="slide">
             <div class="slide-content">
-                <h2>Background and Objective</h2>
+                <h2>LMRT BLUE LINE - SURVEILLANCE SYSTEM
+</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">258</span>
+                        <div class="stat-label">Total Cameras</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">167</span>
+                        <div class="stat-label">Operational (64.7%)</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">63</span>
+                        <div class="stat-label">Need Cleaning (24.4%)</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">28</span>
+                        <div class="stat-label">Non-functional (10.9%)</div>
+                    </div>
+                </div>
                 <div class="image-placeholder">
-                  <img src="./images/Picture2.png" alt="" class="image-placeholder">
+                    <img class="image-placeholder" src="./images/camerass.png" alt="">
                 </div>
-                <p>Routine bimonthly security evaluation across LRMT Red Line stations</p>
-                <h3>Objectives:</h3>
-                <ul>
-                    <li>Evaluate security personnel deployment and conduct</li>
-                    <li>Identify safety threats to staff and commuters</li>
-                    <li>Ensure compliance with security protocols</li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- Slide 3: Executive Summary -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Executive Summary</h2>
-                <div class="key-findings">
-                    <h3>Key Findings:</h3>
+
+            </div>
+
+
+            <div class="key-findings">
+                    <h3>LRMT Blue Line Surveillance and Monitoring Performance:</h3>
                     <ul>
-                        <li>Poor uniform compliance and unprofessional behavior among TTC guards</li>
-                        <li>Lack of dedicated security offices/shelters</li>
-                        <li>Absence of police presence at stations</li>
-                        <li>Frequent violent altercations during peak hours</li>
-                        <li>Theft and vandalism incidents</li>
+
+
+<li>Surveillance Cameras:
+There are a total of 305 surveillance cameras across the 5 Blue line stations.​
+With 5 control rooms and 1 control center at LAMATA Head office.</li>
+<li>15 surveillance officers are deployed to the stations to ensure 100%
+monitoring of the surveillance system during operational hours.​</li>
+<li>A total of 63 cameras were cleaned in the month of July by stations electricians
+and supervised by our LAMATA surveillance officers.</li>
+<li>The surveillance system, along with the eagle-eyed diligence of our officers,
+has enhanced monitoring, issue detection, and operations across all train stations</li>
+
                     </ul>
                 </div>
-                <p><strong>Comprehensive actions were taken and recommendations were made for immediate improvements</strong></p>
-            </div>
+
+  <div class="station-box">
+                    <h3>Key Achievement through Surveillance System</h3>
+                    <ul>
+
+
+                        <li>1. The apprehension of thieves at National Theatre.</li>
+                        <li>2. Recovery of missing items through surveillance camera footage playback</li>
+                    </ul>
+
+
+
+                </div>
+
+
+                
+  <div class="key-findings">
+                    <h3>Challenges:</h3>
+                    <ul>
+<li> Latency in surveillance camera feeds.​</li>
+<li> Absence of communication system between station surveillance rooms and LAMATA control Centre.​</li>
+
+<li>
+ Absence of maintenance contract for surveillance system maintenance</li>
+
+                    </ul>
+                </div>
+
+
+
+                
+  <div class="recommendations">
+                    <h3>Action Taken:</h3>
+                    <p>In the absence of a maintenance contract, our unit has been carrying out basic maintenance functions, including cleaning cameras and attending to minor technical issues.</p>
+                </div>
+
+
+
         </div>
 
-        <!-- Slide 4: Security Deployment Overview -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Security Deployment Overview</h2>
-                <div class="image-placeholder">
-                      <img src="./images/picture5.png" alt="" class="image-placeholder">
-                </div>
-                 <b> 🟠Orange bars = TTC deployed personnel   🟡Yellow bars = LNSC deployed personnel
+        <!-- Slide 5: Station-by-Station CCTV Analysis -->
+        
 
-  ❌Red X markers = Expected personnel count</b>
-                  <ul>
-                    <li>Expected vs. deployed personnel analysis (day & night shifts)</li>
-                    <li>Critical shortfalls identified at multiple stations</li>
-                </ul>
+        <!-- Slide 6: Body Scanner Systems Assessment   -->
+        <div class="slide">
+            <h2>LMRT BLUE LINE - BODY SCANNERS</h2>
+            <div class="slide-content">
+                <h3>Body Scanner Systems Assessment</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">75</span>
+                        <div class="stat-label">Total Scanners</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">47</span>
+                        <div class="stat-label">Operational (62.7%)</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">18</span>
+                        <div class="stat-label">Faulty (27.3%)</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">10</span>
+                        <div class="stat-label">Not in use (10.0%)</div>
+                    </div>
+                </div>
+                
                 <div class="critical-issue">
-                    <h3>Stations with Most Critical Shortfalls:</h3>
+                    <h3>Challenges:</h3>
                     <ul>
-                        <li><strong>Oshodi</strong> - Significant personnel shortage</li>
-                        <li><strong>Ikeja</strong> - Compliance and deployment issues</li>
-                        <li><strong>Yaba</strong> - Understaffed with security concerns</li>
+                        <li>The station technicians are not trained to maintain the body scanners</li>
+                        <li>Absence of maintenance contract</li>
+                     
                     </ul>
                 </div>
 
 
-<b> <p>Post Audit -Summary of current TTC personnel deployment across all Red Line stations:</p></b>
-  <div class="image-placeholder">
-                      <img src="./images/update.png" alt="" class="image-placeholder">
-              <img src="./images/466d29f4-3f74-4b80-b6e7-0609cf9ec76d.jpg" alt="">
-                </div>
 
- <div class="critical-issue" style="background-color: greenyellow;">
-                        <h4 >Current Status Update:</h4>
-                        <ul>
-                            <li> Increased security presence with 1 Police Officer attached to identified stations  implemented</li>
-                            <li> Hawkers cleared frequently</li>
-                            <li> Social services intervention yet to be implemented </li>
-                            
-                        </ul>
-                    </div>
-
-
-
-
-
-            </div>
-
-
-            
-        </div>
-
-        <!-- Slide 5: Station-Specific Findings - Iju & Agege -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Station-Specific Findings - Iju & Agege</h2>
-                <div class="station-box">
-                    <h3>Iju Station</h3>
-                    <p>✅ Full deployment achieved, no personnel shortfall</p>
-                    
-                    <div class="recommendations">
-                        <h4>Current Status Update:</h4>
-                        <ul>
-                            <li> Maintained full deployment]</li>
-                            <li>The abandoned building beside NRC, being occuoied by miscreants has been sealed and illegat trades has been stopped.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="station-box">
-                    <h3>Agege Station</h3>
-                    <ul>
-                        <li>Diesel theft via vandalism reported</li>
-                        <li>Walkway obstructed by hawkers and filth, and political advert placement</li>
-                        <li>Mentally ill woman sheltering on platform poses safety risks</li>
-                    </ul>
-                    
-                    <div class="critical-issue">
-                        <h4>Current Status Update:</h4>
-                        <ul>
-                            <li> Increased TTC security presence and attached a Police officer to enable efficient patrols </li>
-                            <li>The vandalised iron mesh on the fench should be fixed</li>
-                            <li> Walkway has been cleared, and is being monitored by the LNSC.</li>
-                            <li>social services intervention yet to be implemented i.e the Woman is yet to be cleared</li>
-                            <li>A section of the perimeter fence beside platform 2, continues to be deliberately broken down and has been rebuilt multiple times</li>
-                            <li> Daily monitoring on the appearance & professional conduct of Security guards</li>
-                        </ul>
-                    </div>
-                </div>
-                                <div >
-                    <img class="image-placeholder" src="./images/bar.png" alt="">
-                    <figcaption>Alleged Diesel theft via vandalism of the iron mesh wall, enabled by a CCECC residential shelter built against the perimeter</figcaption>
-                </div>
-
-                 <div >
-                    <img class="image-placeholder" src="./images/loitter.png" alt="">
-                    <figcaption>Walkways plagued with hawkers, Removal of political advert posters which was creating concealment for theft and reduce visibility.</figcaption>
-                </div>
-
-                <div >
-                    <img class="image-placeholder" src="./images/mama.png" alt="">
-                    <figcaption>
-                Mentally ill woman converted a section of the platform into a sleeping space, posing both a safety and health risk. Removal of political advert posters 
-            </figcaption>
-                </div>
                 <div class="recommendations">
-                    <p><strong> Recommendations:</strong><br>• Provide shelter for security guards. <br> •	Relocate or dismantle the CCECC shelter and reinforce the boundary wall.<br>•	Enforce anti-hawking laws and reinforce walkway lighting. <br>• Refer the mentally ill woman to the nearest public health facility for psychiatric evaluation <br>•	Deploy a trained Patrol Dog during late hours as an active deterrent <br>•	Electrify the fence <br> •	Install surveillance system to capture footage of offenders for identifivation and prosecution </p>
+                    <h3>Priority Actions:</h3>
+                    <ul>
+
+                        <li>There should be a maintenance contract for the maintenance of the body scanners.
+</li>
+<li>The station technicians should be trained to maintain the body scanners</li>
+
+
+
+
+
+
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 6: Station-Specific Findings - Ikeja & Oshodi -->
+        <!-- Slide 7: Security Personnel & Operations -->
         <div class="slide">
             <div class="slide-content">
-                <h2>Station-Specific Findings - Ikeja & Oshodi</h2>
-                <div class="station-box">
-                    <h3>Ikeja Station</h3>
-                    <ul>
-                        <li>Guards are compliant on uniform requirements</li>
-                        <li>Trespassing incidents due to scalable perimeters and unrestricted access from neighbouring areas</li>
-                        <li>Security guards have been physically attacked and stoned by miscreants</li>
-                    </ul>
-                    
-                    <div class="recommendations">
-                        <h4>Current Status Update:</h4>
-                        <ul>
-                            <li>Security presence increased to meet expected deployment and a Police officer has been attached to reinforce protection</li>
-                            <li>Guards equipped with neccessary security tools to combat challenges</li>
-                            <li>Perimeter fence and gutter is yet to be blocked, leaving the vulnerabilty unresolved</li>
-                            <li>No surveillance system to provide real-time monitoring</li>
-                        </ul>
-                    </div>
-
-                     <img class="image-placeholder" src="./images/ikeja.png" alt="">
-                    <figcaption>
-               Unrestrained pedestrian access across tracks, exposed open drainage enabling cable theft, and scalable perimeter fencing facilitating unauthorized train boarding
-            </figcaption>
-
-
-                     <img class="image-placeholder" src="./images/cutlass.png" alt="">
-
-                     <p>Guards equipped with necessary security tools to address challenges.</p>
-
-
-                </div>
-                
-              
-                <div class="station-box">
-                    <h3>Oshodi Station</h3>
-                    <ul>
-                        <li>Significant shortfall in TTC guard deployment</li>
-                        <li>Existing LNSC manpower insufficient to cover critical access points, particularly platform areas where unauthorized boarding attempts occur.
-
-</li>
-
-<li>Risk of passengers climbing platforms from the tracks remains high due to limited surveillance and personnel coverage.</li>
-
-                    </ul>
-                    
-                    <div class="critical-issue">
-                        <h4>Current Status Update:</h4>
-                        <ul>
-                            <li>Under-deployment during night hours increases vulnerability of staff and station equipment.
-
-</li>
-                            <li>Perimeter and platform access control is inadequate, enabling trespassing from trackside.</li>
-                            
-                            
-                        </ul>
-                    </div>
-               <div >
-                    <img class="image-placeholder" src="./images/osdhodi.png" alt="">
-                    <p> Unrestrained Pedestrian access across tracks as open gate allows free track access by Passersby</p>
-             </div>     
-                </div>
-                
-                <div class="recommendations">
-                    <p><strong>Recommendations:</strong><br>•	Increase LNSC deployment, particularly during peak hours and at night, with focus on platform security.
-
-<br>•	Request police attachment for continuous law enforcement presence.
-
-<br>•	Deploy additional night guards or shift existing manpower to bolster night coverage.
-
-<br>•	Install surveillance cameras to monitor trackside access points and deter platform climbing.
-
-<br>•	Improve perimeter fencing or install physical deterrents (spiked fencing, anti-climb panels) to reduce unauthorized entry from tracks.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 7: Station-Specific Findings - Mushin & Yaba
-        
-        -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Station-Specific Findings - Mushin </h2>
-                <div class="station-box">
-                    <h3>Mushin Station</h3>
-                    <ul>
-                        <li>Phone thefts and assaults frequent on pedestrian bridge leading to the station in the morning</li>
-
-                        <li>LAMATA enforcement team issuing formal eviction notices to occupants at the Mushin Interchange Terminal in compliance with statutory procedures.</li>
-
-
-                        <li>Two deliberately broken sections of the perimeter fence, enabling unauthorized access to the platform.
-
-</li>
-
-<li>Removal of iron bars from the fence, and two deliberately broken fence at the designated Mushin Interchange Terminal  indicating deliberate sabotage.
-</li>
-                    
-                    </ul>
-                    
-                    <div class="critical-issue">
-                        <h4>Current Status Update:</h4>
-                        <ul>
-                             <li>Security presence increased to meet expected deployment and a Police officer has been attached to reinforce protection</li>
-
-                            <li>Guards equipped with neccessary security tools to combat challenges</li>
-                           
-                            <li>LAMATA enforcement signage displayed prominently on-site following eviction of illegal occupants at the Mushin Interchange Terminal.</li>
-                           
-                            
-                        </ul>
-                    </div>
-
-<div >
-                    <img class="image-placeholder" src="./images/fence.png">
-                    <p> Identified Security Vulnerabilities – A deliberately broken fence section providing direct access to the property, and a low fence near the pedestrian bridge requiring elevation to prevent unauthorized entrY
-        </p>
-
-                     <img class="image-placeholder" src="./images/axe.png">
-                    <p> A deliberately broken fence section providing direct access to the property, and recovery of arms(axes) </p>
-
-
-
-
-  <img class="image-placeholder" src="./images/gutter.png">
-                    <p>Obstructed Gutter Flow – Blockage caused by a constructed pillar, leading to stagnant water accumulation and potential structural damage</p>
-
-
-                      <img class="image-placeholder" src="./images/clear.png">
-                    <p> LAMATA enforcement signage displayed prominently on-site following eviction of illegal occupants at the Mushin Interchange Terminal. </p>
-
-
-
-
-             </div>
-
-
-                </div>
-                
-                
-                
-                <div class="recommendations">
-                    <p><strong>Recommendations:</strong><br>•	 Perimeter Reinforcement: Repair the broken fence sections and replace removed iron bars to prevent further unauthorized access to the platform. <br>•	Elevation of the low fence near the pedestrian bridge to deter climbing and unauthorized access.
-<br>•	
-Strategic utilization of the land, such as converting it into a bus depot, to ensure consistent monitoring and lawful occupation.
-
-<br>•	Drainage Diversion: Redirect the gutter away from the obstructing pillar to allow proper water flow and prevent structural weakening, mosquito breeding, and foul odor.
- <br>•	Lighting Upgrade: Install adequate lighting on the pedestrian bridge to eliminate concealment opportunities for perpetrators.</p>
-                </div>
-            </div>
-        </div>
-
-       
-     
-        
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Station-Specific Findings - Oyingbo & Yaba</h2>
-                <div class="station-box">
-                    <h3>Oyingbo Station</h3>
-                    <ul>
-                        <li></li>
-                    
-                    </ul>
-                    
-                    <div class="critical-issue">
-                        <h4>Current Status Update:</h4>
-                        <ul>
-                            <li>Insufficient night guards</li>
-                            
-<li>No police presence for armed intervention in emergencies.</li>
-<li></li>No CCTV coverage, creating surveillance blind spots.</li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="station-box">
-                    <h3>Yaba Station</h3>
-                    <ul>
-                        <li>Touts sleeping under tracks with no intervention</li>
-                        <li>Shortfall in deployed TTC guards</li>
-                    </ul>
-                    
-                    <div class="critical-issue">
-                        <h4>Current Status Update:</h4>
-                        <ul>
-                            <li>Platforms remain accessible from the track due to inadequate barrier systems</li>
-                            <li>Worn-out padlocks on all station gates, compromising access control</li>
-                        </ul>
-                    </div>
-
-                     <div >
-                    <img class="image-placeholder" src="./images/yaba.png" alt="">
-                    <p>  Platforms remain accessible from the track due to inadequate barrier systems.</p>
-
-                     <img class="image-placeholder" src="./images/padlock.png" alt="">
-                    <p> Worn-out padlocks on station gates</p>
-             </div> 
-                </div>
-                
-                <div class="recommendations">
-                    <p><strong> Recommendations:</strong>•	 Replace all padlocks with tamper-proof, high-security locks.
-•	 Provide standard security kits (batons, handcuffs, whistles, and flashlights) to each guard.
-•	 Strengthen the perimeter fencing and paste warning signage.
-•	 Supply portable two-way radios to improve coordination.
-•	Increase night guard deployment to cover all entry points and platform edges.
-•	Deploy police personnel for armed deterrence and incident response.
-•	 Install physical barriers to prevent platform access from tracks.
-•	 Install  CCTV network to cover all approach points and integrate with central monitoring.
-
+                <h2>LRMT BLUE LINE CORRIDOR CLEARANCE</h2>
+                <p>Continuous and regular clearing and raiding of the LRMT Blue line corridor were carried out to protect the operations integrity, removing illegal traders and encroachments, and ensuring order around train stations and BRT corridors
 </p>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 9: Recommendations 
-
-        -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>General Security Recommendations for All Stations</h2>
-                <div class="recommendations">
-                    <ul>
-                        <b>1. Increase Security Personnel Deployment </b>
-                          <li> Deploy additional LNSC officers, particularly during high passenger flow periods and at night, to improve deterrence and rapid response.</li>   
-
-   <li>Ensure adequate presence of police personnel for armed backup at strategic points.</li> 
-                        
-
-
-<b>
-2. Upgrade Perimeter and Access Control </b>
-
-   <li>Repair and reinforce all damaged fences, gates, and barriers to prevent unauthorized entry.</li> 
-   <li>Install higher fencing or anti-climb measures where low barriers are being exploited.</li> 
-   <li>Replace faulty padlocks and improve locking mechanisms for all station gates.</li> 
-
-   <b>3. Enhance Surveillance and Monitoring Systems </b>
-<li>Install  CCTV cameras to ensure full coverage of platforms, entrances, pedestrian bridges, and vulnerable areas.</li>
-
-<b>4. Improve Lighting and Visibility</b>
-<li>Install adequate lighting, especially on pedestrian bridges, station surroundings, and other high-risk areas to deter criminal activity.
-   </li>
-   <li>Enforce walkway cleanliness and anti-hawking regulations with mobile patrols</li>
-
-   <b>5. Provision of Shelter, Security Tools and Equipment </b>
-   <li>Equip guards with standard security tools such as batons, radios, flashlights, and protective gear for effective handling of incidents.
-</li>
- <li>Provide dedicated security shelters at all stations</li>
-   
- <b>6. Address Miscreant and Loitering Challenges</b>
-
-   <li>Maintain regular patrols to prevent illegal loitering and stop miscreants from gaining access to stations and surrounding areas.</li>
-   <li>Work with local law enforcement to remove persistent offenders from station environments.</li>
-                      
-   
-   <b>7. Facility Utilization and Encroachment Prevention </b>
-<li>Put unused station property or land to productive use (e.g bus depots) to deter trespassing and illegal occupation.
-</li>
-   
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 10: Current Status & Actions Taken -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Overall Progress Summary</h2>
                 <div >
-                <img class="image-placeholder" src="./images/wide.png" alt="">
+                    <h3>BEFORE OPERATION</h3>
+                   <img class="image-placeholder" src="./images/operation.png" alt="">
+                </div>
+
+                                <div >
+                                    <h3>AFTER OPERATION</h3>
+                   <img class="image-placeholder" src="./images/operations.png" alt="">
                 </div>
                 
-               
-                
-                <div class="station-box">
-    <h3>📊 Overall Progress Metrics:</h3>
-    <ul>
-        <li>Security incidents across all stations: 14 (Previous) → 9 (Current)</li>
-        <li>Overall personnel deployment rate: 68% (Previous) → 82% (Current)</li>
-        <li>System-wide uniform compliance: 60% (Previous) → 74% (Current)</li>
-        <li>Average incident response time: 12 mins (Previous) → 8 mins (Current)</li>
-        <li>Commuter safety satisfaction: 65% (Previous) → 78% (Current)</li>
-    </ul>
-</div>
             </div>
         </div>
 
-        <!-- Slide 11: Conclusion -->
+        <!-- Slide 8: Infrastructure & Environmental Issues -->
         <div class="slide">
             <div class="slide-content">
-                <h2>Conclusion</h2>
-                <p>Security audit reveals critical areas for improvement in deployment, professionalism, and infrastructure</p>
-                <div class="key-findings">
-                    <h3>Key Focus Areas:</h3>
+                <h2>OTHER ACTIVITIES</h2>
+                
+                <div class="critical-issue">
+                    <h3>Critical Infrastructure Problems:</h3>
                     <ul>
-                        <li>Personnel accountability and professional standards</li>
-                        <li>Better working conditions and resources for guards</li>
-                        <li>Targeted crime intervention and prevention strategies</li>
+<li><strong>1. Conduct Bi-Monthly Security & Surveillance Audits:</strong>Regularly assess security operations to identify gaps and areas for improvement.</li>
+<li><strong>2. Monitor and Spot-Check Security Personnel:</strong>
+Spot-check the Police, LNSC, and ASA security to ensure presence, adherence, and
+compliance with established SOPs.</li>
+<li><strong>3. Curb Armed Robbery Incidents at Marina Train Station:</strong>Installation of adequate solar lighting to illuminate the station environment at night. <br> ✔ Deployed dedicated state tactical teams for patrols during and after operations <br> ✔ Position the Lion Building Division with patrol vehicles on standby around the station for rapid response.<br> ✔ Position a LAMATA enforcement patrol vehicle and team on a 24-hour basis to respond
+    promptly to any emergency </li>
+
+
+<li><strong>4. Identify and Report Faulty Infrastructure:</strong>Promptly escalate issues to the maintenance team for immediate corrective action</li>
+                    </ul>
+
+                   
+
+<div class="critical-issue">
+                    <h2>OTHER CHALLENGES</h2>
+                    <ul>
+                        <li>Rush during peaks periods.</li>
+                        <li> Intrusion onto the Tracks.</li>
+                       
                     </ul>
                 </div>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Slide 9: Key Recommendations -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Key Recommendations</h2>
                 <div class="recommendations">
-                    <p><strong>Next Steps:</strong> Continue monitoring and follow-up audits recommended within 30 days to track ongoing improvements</p>
+                    <h3>Priority Actions:</h3>
+                    <ul>
+<li><strong>I.      Implement a Maintenance Schedule:</strong>
+Develop a structured plan for surveillance systems and body scanners across all Blue Line stations,
+ensuring regular inspections, servicing, and prompt repairs.</li>
+<li><strong>II.     Enhance Crowd Control</strong>
+Deploy additional uniformed security personnel at high-traffic stations, such as Marina,
+during peak hours to effectively manage crowds and maintain order.</li>
+<li><strong>III.   Upgrade Communication Tools</strong>
+Equip security personnel at train stations with communication devices like walkie-talkies or
+digital radios to facilitate swift communication and coordinated emergency response.</li>
+<li><strong>IV.    Electrify the Palisade Fence</strong>
+Upgrade the palisade fence with electrification to deter and prevent intruders.</li>
+
+
+
+
+
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Slide 10: Conclusion & Next Steps -->
+
 
     <div class="navigation">
         <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
@@ -1155,6 +627,13 @@ Strategic utilization of the land, such as converting it into a bus depot, to en
             showSlide(currentSlide + n);
         }
 
+        function openRedLineReport() {
+            // This function will link to the Red Line report when you provide the file
+            window.open('blue.html', '_blank')
+            alert('Red Line Security Report will be opened here');
+            // You can replace this with: window.open('red-line-report.html', '_blank');
+        }
+
         // Initialize
         showSlide(0);
 
@@ -1166,13 +645,6 @@ Strategic utilization of the land, such as converting it into a bus depot, to en
                 if (currentSlide > 0) changeSlide(-1);
             }
         });
-
-        // Auto-advance option (uncomment to enable)
-        // setInterval(() => {
-        //     if (currentSlide < totalSlides - 1) {
-        //         changeSlide(1);
-        //     }
-        // }, 10000); // 10 seconds per slide
     </script>
 </body>
 </html>
